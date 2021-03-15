@@ -6,24 +6,23 @@ using System.Threading.Tasks;
 
 namespace CustomQueue
 {
-    public class Queue
+    public class Queue<T>
     {
+        T[] Data;
+
         int Capacity;
-        int[] Data;
-
         public int Count;
-
         int HeadPointer;
         int TailPointer;
 
-        public int Head
+        public T Head
         {
             get
             {
                 return Data[HeadPointer];
             }
         }
-        public int Tail
+        public T Tail
         {
             get
             {
@@ -38,7 +37,7 @@ namespace CustomQueue
             }
         }
         
-        public void Enqueue(int item)
+        public void Enqueue(T item)
         {
             if(IsEmpty)
             {
@@ -67,13 +66,11 @@ namespace CustomQueue
             {
                 if (HeadPointer == TailPointer)
                 {
-                    Data[HeadPointer] = 0;
                     HeadPointer = -1;
                     TailPointer = -1;
                 }
                 else
                 {
-                    Data[HeadPointer] = 0;
                     HeadPointer++;
                 }
                 Count--;
@@ -86,7 +83,7 @@ namespace CustomQueue
 
         public void Clear()
         {
-            Data = new int[Capacity = 5];
+            Data = new T[Capacity = 5];
             Count = 0;
             HeadPointer = -1;
             TailPointer = -1;
@@ -104,7 +101,7 @@ namespace CustomQueue
                     Console.WriteLine(Data[tail++]);
             }
         }
-        public int Peek()
+        public T Peek()
         {
             return Data[HeadPointer];
         }
@@ -112,7 +109,7 @@ namespace CustomQueue
         {
             if(Count == Capacity)
             {
-                int[] tempArray = new int[Capacity *= 2];
+                T[] tempArray = new T[Capacity *= 2];
 
                 int head = HeadPointer;
                 int tail = 0;
@@ -133,7 +130,7 @@ namespace CustomQueue
         public Queue(int capacity = 5)
         {
             Capacity = capacity;
-            Data = new int[Capacity];
+            Data = new T[Capacity];
             Count = 0;
             HeadPointer = -1;
             TailPointer = -1;

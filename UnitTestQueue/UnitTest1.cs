@@ -10,7 +10,7 @@ namespace UnitTestQueue
         [TestMethod]
         public void Count_After_DeQ()
         {
-            Queue myQ = new Queue();
+            Queue<int> myQ = new Queue<int>();
             myQ.Enqueue(10);
             myQ.Enqueue(20);
             myQ.Enqueue(30);
@@ -27,7 +27,7 @@ namespace UnitTestQueue
         [TestMethod]
         public void HeadAndTail()
         {
-            Queue myQ = new Queue();
+            Queue<int> myQ = new Queue<int>();
             myQ.Enqueue(10);
             Assert.AreEqual(10, myQ.Head);
             Assert.AreEqual(10,myQ.Tail);
@@ -35,14 +35,14 @@ namespace UnitTestQueue
         [TestMethod]
         public void EmptyDeQ()
         {
-            Queue myQ = new Queue();
+            Queue<int> myQ = new Queue<int>();
             Assert.ThrowsException<InvalidOperationException>(() => myQ.Dequeue());
         }
 
         [TestMethod]
         public void ClearQueue()
         {
-            Queue myQ = new Queue();
+            Queue<int> myQ = new Queue<int>();
             myQ.Enqueue(10);
             myQ.Enqueue(20);
             myQ.Enqueue(30);
@@ -53,7 +53,7 @@ namespace UnitTestQueue
         [TestMethod]
         public void Peek()
         {
-            Queue myQ = new Queue();
+            Queue<int> myQ = new Queue<int>();
             myQ.Enqueue(10);
             myQ.Enqueue(20);
             myQ.Enqueue(30);
@@ -63,14 +63,14 @@ namespace UnitTestQueue
         [TestMethod]
         public void IsEmptyFalse()
         {
-            Queue myQ = new Queue();
+            Queue<int> myQ = new Queue<int>();
             myQ.Enqueue(10);
             Assert.AreEqual(false, myQ.IsEmpty);
         }
         [TestMethod]
         public void IsEmptyTrue()
         {
-            Queue myQ = new Queue();
+            Queue<int> myQ = new Queue<int>();
             Assert.AreEqual(true, myQ.IsEmpty);
         }
     }
