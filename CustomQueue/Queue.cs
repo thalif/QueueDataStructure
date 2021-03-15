@@ -10,7 +10,9 @@ namespace CustomQueue
     {
         int Capacity;
         int[] Data;
-        int Count;
+
+        public int Count;
+
         int HeadPointer;
         int TailPointer;
 
@@ -63,7 +65,7 @@ namespace CustomQueue
         {
             if(!IsEmpty)
             {
-                if(HeadPointer == TailPointer)
+                if (HeadPointer == TailPointer)
                 {
                     Data[HeadPointer] = 0;
                     HeadPointer = -1;
@@ -75,6 +77,10 @@ namespace CustomQueue
                     HeadPointer++;
                 }
                 Count--;
+            }
+            else
+            {
+                throw new InvalidOperationException();
             }
         }
 
@@ -100,7 +106,7 @@ namespace CustomQueue
         }
         public int Peek()
         {
-            return Data[TailPointer];
+            return Data[HeadPointer];
         }
         public void Resize()
         {
